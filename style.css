@@ -124,7 +124,7 @@ header {
 button {
     border: none;
 }
-.schedule-button, .nav-menu-schedule-button {
+.schedule-button {
     background-color: var(--rose-600);
     text-decoration: none;
     color: var(--slate-50);
@@ -136,6 +136,14 @@ button {
     align-items: center;
     align-content: center;
     text-align: center;
+}
+.nav-menu-schedule-button {
+    background-color: var(--rose-600);
+    text-decoration: none;
+    color: var(--slate-50);
+    font-size: 1rem;
+    padding: 1%;
+    border-radius: 999px;
 }
 .schedule-button {
     box-shadow: 4px 4px 10px -2px var(--slate-500);

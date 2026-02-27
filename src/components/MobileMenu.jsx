@@ -11,15 +11,19 @@ export default function MobileMenu() {
         setShow(prevShow => !prevShow)
     }
 
+    function removeMenu() {
+        setShow(false)
+    }
+
     return (
         <div className="hamburger-menu">
             <img src={hamburgerMenuImage} alt="click here to display the menu" onClick={handleClick} className="hamburger-menu-button"/>
             {show && <div className="nav-menu">
                 <img src={closeButtonImage} alt="click here to close the top menu" className="close-button" onClick={handleClick}/>
-                <Link to="pricing">Pricing</Link>
-                <Link to="about">About</Link>
-                <Link to="contact">Contact</Link>
-                <Link to="/contact" className="nav-menu-schedule-button">Schedule a Demo</Link>
+                <Link to="pricing" onClick={removeMenu}>Pricing</Link>
+                <Link to="about" onClick={removeMenu}>About</Link>
+                <Link to="contact" onClick={removeMenu}>Contact</Link>
+                <Link to="/contact" className="nav-menu-schedule-button" onClick={removeMenu}>Schedule a Demo</Link>
             </div> }
         </div>
     )
