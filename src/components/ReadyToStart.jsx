@@ -1,5 +1,5 @@
 import React from "react"
-import ScheduleDemo from "./scheduleDemo";
+import ScheduleDemo from "./ScheduleDemo";
 
 export default function ReadyToStart() {
     return (

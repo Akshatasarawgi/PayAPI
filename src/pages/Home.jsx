@@ -1,5 +1,5 @@
 import React from "react"
-import ScheduleDemo from "../components/scheduleDemo"
+import ScheduleDemo from "../components/ScheduleDemo"
 import { Link }  from "react-router-dom"
 import smartPhoneImage from "../../public/assets/home/desktop/illustration-phone-mockup.svg"
 import teslaImage from "../../public/assets/shared/desktop/tesla.svg"
