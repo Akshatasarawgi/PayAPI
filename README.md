@@ -1,5 +1,5 @@
 # PayAPI multi-page website solution
- Created a React based SPA (Single page application) with the help of React Router 6 and Layout Route for the fixed components.  
+ Created a React based SPA (Single page application) with React Router 6.  
 
 ## Table of contents
 - [Overview](#overview)
