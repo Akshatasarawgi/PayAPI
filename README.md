@@ -15,10 +15,13 @@ I used React state for controlled form input fields and error display. React use
 The application has an input form for the email, and a contact form that displays an error message when the mandatory fields are not filled.
 
 ### Screenshot
+![alt text](payApiScrnsht1.png)
+![alt text](payApiScrnsht2.png)
+![alt text](payApiScrnsht3.png)
 
 ### Links
-- Solution URL: 
-- Live Site URL:
+- Github Link: https://github.com/Akshatasarawgi/PayAPI
+- Live Site URL: 
 
 ### Built with
 - [React](https://reactjs.org/) - JS library
@@ -29,7 +32,7 @@ The application has an input form for the email, and a contact form that display
 - Mobile-first workflow
 
 ### What I learned
-I practiced how to set a time out for the confirmation modal to disappear.
+I learned how to set a time out for the confirmation modal to disappear.
 
 ```
    React.useEffect(() => {
@@ -42,10 +45,16 @@ I practiced how to set a time out for the confirmation modal to disappear.
     }, [showModal])
 ```
 
-I practiced to remove the error message from a reusable component, by creating a dependency on the location of the urln using useLocation from react router dom. 
+I learned to remove the error message from a reusable component, by creating a dependency on the location of the url using useLocation from react router dom. 
 ```
         React.useEffect(() => {
             setError(false)
         },[location.pathname] )
 ```
 
+I learned to handle scroll to the top manually when navigating between pages.
+```
+   useEffect(() => {
+        window.scrollTo(0,0)
+    },[pathname]);
+```    

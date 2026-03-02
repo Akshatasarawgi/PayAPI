@@ -18,14 +18,22 @@ export default function Contact() {
         updates: false
     })
 
-    const [error, setError] = React.useState(false)
+    const [error, setError] = React.useState({
+        userNameError: false,
+        emailError: false,
+        messageError: false
+    })
     const [showModal, setShowModal] = React.useState(false)
 
     function handleChange(event) {
         const {name, value, type, checked} = event.target;
-        if(name === "email" && value!==null) {
-            setError(false)
-        } 
+
+        if(value) {
+            setError(prevError => ({
+                ...prevError,
+                [`${name}Error`]: false
+            }))
+        }
     
         setForm(prevForm => type === "checkbox" ? 
             {...prevForm, [name]: checked } :  
@@ -34,20 +42,40 @@ export default function Contact() {
 
     function handleSubmit(event) {
         event.preventDefault()
-        setError("")
         const formData = new FormData(event.target)
 
-        //let userName = formData.get("userName");
+        let userName = formData.get("userName");
         let email = formData.get("email");
-        //let message = formData.get("message");
+        let message = formData.get("message");
 
-        if(!email) {
-            setError(true)
-            return 
+        if(!userName) {
+            setError(prevError => {
+                return {
+                    ...prevError,
+                    userNameError: true
+                }
+            })
         }
-
-        setShowModal(true)
-        setForm({
+        if(!email) {
+            setError(prevError => {
+                return {
+                    ...prevError,
+                    emailError: true
+                }
+            })
+        }
+        if(!message) {
+            setError(prevError => {
+                return {
+                    ...prevError,
+                    messageError: true
+                }
+            })
+        }
+        
+        if(userName && email && message) {
+            setShowModal(true)
+            setForm({
             userName: "",
             email: "",
             companyName: "",
@@ -55,6 +83,9 @@ export default function Contact() {
             message: "",
             updates: false
         })
+        setError({userNameError: false, emailError: false, messageError: false})
+        }
+    
     }
 
      React.useEffect(() => {
@@ -77,18 +108,18 @@ export default function Contact() {
                         name="userName"
                         onChange={(e) => handleChange(e)}
                         placeholder="Name"
-                        className={error && "error-field"}
+                        className={error.userNameError && "error-field name-field"}
                     />
-
+                    {error.userNameError ? <p className="error-message">This field can't be empty</p> : ""}
                      <input 
                         type="email" 
                         value={form.email} 
                         name="email"
                         onChange={(e) => handleChange(e)}
                         placeholder="Email Address"
-                        className={error && "error-field"}
+                        className={error.emailError && "error-field email-field"}
                     />
-                    {error ? <p className="error-message">This field can't be empty</p> : ""}
+                    {error.emailError ? <p className="error-message">This field can't be empty</p> : ""}
                     
                      <input 
                         type="text" 
@@ -111,9 +142,10 @@ export default function Contact() {
                         name="message" 
                         placeholder="Message" 
                         onChange={(e) => handleChange(e)}
-                        className={error && "error-field"}
+                        className={error.messageError && "error-field message-field"}
                         >
                     </textarea>
+                    {error.messageError ? <p className="error-message ">This field can't be empty</p> : ""}
                    
                    <div className="checkbox-wrapper">
                         <label className="checkbox-text">
