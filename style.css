@@ -145,6 +145,7 @@ header {
 }
 button {
     border: none;
+    background-color: transparent;
 }
 .schedule-button {
     background-color: var(--rose-600);
@@ -719,7 +720,17 @@ form > .schedule-button:hover {
 .contact-form .error-message {
     padding: 0% 2%;
 }
-
+.hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+}
 
 /* Responsive Design for Tablets */
 @media screen and (max-width: 907px) {

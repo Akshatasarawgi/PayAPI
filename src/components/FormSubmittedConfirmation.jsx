@@ -2,7 +2,11 @@ import React from "react"
 
 export default function FormSubmittedConfirmation() {
     return (
-        <div style={{
+        <div 
+                role="dialog"
+                aria-live="polite"
+                aria-labelledby="confirmation-title"
+                style={{
                 position: "fixed",
                 top: "50%",
                 left: "50%",
@@ -16,7 +20,7 @@ export default function FormSubmittedConfirmation() {
                 zIndex: 1000,
                 textAlign: "center"
             }}>
-            <p>Thank you for contacting us.<br /> We will reach out to you on your Email Address.</p>
+            <p id="confirmation-title">Thank you for contacting us.<br /> We will reach out to you on your Email Address.</p>
         </div>
     )
 }
