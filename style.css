@@ -719,6 +719,11 @@ form > .schedule-button:hover {
 }
 .contact-form .error-message {
     padding: 0% 2%;
+    font-size: 0.8rem;
+    font-weight: 300;
+}
+.contact-form div {
+    width: 100%;
 }
 .hidden {
     position: absolute;
