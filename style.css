@@ -275,7 +275,6 @@ footer {
     cursor: text;
 }
 .schedule-form {
-    display: flex;
     position: relative;
 }
 .schedule-form .schedule-button {
@@ -894,10 +893,6 @@ form > .schedule-button:hover {
         width: clamp(170px, 90% ,380px);
         margin: 0 auto;
         padding: 0;
-    }
-    .schedule-form {
-        display: flex;
-        flex-direction: column;
     }
     .schedule-form  {
         display: flex;
